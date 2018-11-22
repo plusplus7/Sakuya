@@ -14,3 +14,6 @@ def parse_time(time_str):
 
 def format_time(time_obj):
     return time_obj.strftime('%Y-%m-%dT%H:%M:%S.%f')
+
+def format_time_pretty(time_obj):
+    return time_obj.strftime('%Y/%m/%d %H:%M:%S')

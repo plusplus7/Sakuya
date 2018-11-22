@@ -7,6 +7,7 @@ CREATE TABLE Users (
 
 CREATE TABLE ExpenseRecords (
     id UUID DEFAULT uuid_generate_v4(),
+    user_id UUID NOT NULL,
     from_account UUID NOT NULL,
     to_account UUID NOT NULL,
     amount DOUBLE PRECISION NOT NULL,

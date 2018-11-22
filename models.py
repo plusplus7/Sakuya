@@ -13,11 +13,12 @@ import utils
 class User():
     
     def __init__(self,
+                 id,
                  display_name,
                  others,
                  register_time = datetime.datetime.utcnow()):
 
-        self.id             = str(uuid.uuid4())
+        self.id             = id
         self.display_name   = display_name
         self.others         = others
         self.register_time  = utils.format_time(register_time)
@@ -25,14 +26,17 @@ class User():
 class ExpenseRecord():
 
     def __init__(self,
+                 id,
+                 user_id,
                  from_account,
                  to_account,
                  amount,
                  description = "",
                  transaction_time = datetime.datetime.utcnow(),
-                 created_time = datetime.datetime.utcnow())):
+                 created_time = datetime.datetime.utcnow()):
 
-        self.id                 = str(uuid.uuid4())
+        self.id                 = id
+        self.user_id            = user_id
         self.from_account       = from_account
         self.to_account         = to_account
         self.amount             = amount
@@ -43,11 +47,12 @@ class ExpenseRecord():
 class Account():
 
     def __init__(self,
+                 id,
                  user_id,
                  display_name,
-                 amount):
+                 balance):
 
-        self.id = str(uuid.uuid4())
+        self.id = id
         self.user_id = user_id
         self.display_name = display_name
-        self.amount = amount
+        self.balance = balance

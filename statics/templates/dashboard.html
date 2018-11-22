@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block navbar %}
+
+{% include "navbar.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">支出账户</th>
+            <th scope="col">转入账户</th>
+            <th scope="col">金额</th>
+            <th scope="col">备注</th>
+            <th scope="col">交易日期</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in expenses %}
+        <tr>
+            <th scope="row">{{ expenses.index(e) }}</th>
+            <td>{{ account_dict[e.from_account].display_name }}</td>
+            <td>{{ account_dict[e.to_account].display_name }}</td>
+            <td>{{ e.amount }}</td>
+            <td>{{ e.description }}</td>
+            <td>{{ utils.format_time_pretty(e.transaction_time) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
