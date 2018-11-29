@@ -26,7 +26,7 @@ class storage():
             try:
                 if self.connection != None:
                     return self.connection.cursor()
-            except psycopg2.DatabaseError, e:
+            except psycopg2.DatabaseError as e:
                 utils.log_warning("Database connect failed. Exception: " + str(e))
             self.close()
             self.connect()
@@ -67,5 +67,5 @@ import datetime
 from datetime import timedelta
 
 s.connect()
-print s.get_accounts_by_user_id('00000000-0000-0000-0000-000000000001')
+print (s.get_accounts_by_user_id('00000000-0000-0000-0000-000000000001'))
 # s.get_expense_records_by_daterange('00000000-0000-0000-0000-000000000001', datetime.datetime.now() - timedelta(days=1), datetime.datetime.now() + timedelta(days=1))

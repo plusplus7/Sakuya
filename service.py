@@ -4,10 +4,8 @@ from datetime import timedelta
 import uuid
 import utils
 import flask
-from flask import request
 import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+from flask import request
 import storage
 from dateutil.relativedelta import relativedelta
 
